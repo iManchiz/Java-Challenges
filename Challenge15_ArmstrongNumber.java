@@ -8,19 +8,38 @@ public class Challenge15_ArmstrongNumber {
 
         System.out.print("Write a number: ");
         Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        int[] array = {number};
-        armstrongNumber(array);
+        String number = scanner.nextLine();
+
+        char[] numberReal = number.toCharArray();
+
+        if (armstrongNumber(numberReal).equals(number)) {
+            System.out.println("Is a Armstrong number");
+        }
+        else{
+            System.out.println("Is not a Armstrong number");
+        }
+
+
 
     }
 
-    private static int armstrongNumber (int[] array){
+    private static String armstrongNumber (char[] array){
+
+        int result = 0;
+        int finalResult = 0;
+        String toString;
         
         for (int i = 0; i < array.length; i++) {
-            System.out.println(array[0]);
+
+            result = (array[i] - '0')*(array[i] - '0')*(array[i] - '0');
+            finalResult += result;
+
         }
 
-        return 0;
+        toString = Integer.toString(finalResult);
+
+        System.out.println(finalResult);
+        return toString;
 
     }
 }
